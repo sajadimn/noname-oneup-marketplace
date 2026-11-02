@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="ZarinPalConfig",menuName ="Marketplace/MarketsConfig/ZarinPalConfig")]
 public class ZarinPalConfig : MarketplaceConfig
 {
     public string key = "";

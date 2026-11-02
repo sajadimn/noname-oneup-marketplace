@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DefaultStoreConfig", menuName = "Marketplace/StoreConfig/StoreConfig")]
 public class StoreConfigs : ScriptableObject
 {
     public string projectName;
