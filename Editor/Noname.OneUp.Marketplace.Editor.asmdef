@@ -1,0 +1,21 @@
+{
+    "name": "Noname.OneUp.Marketplace.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Noname.OneUp.Marketplace",
+        "Noname.OneUp.Singleton"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

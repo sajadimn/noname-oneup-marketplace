@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ir.myket.soomla.sample"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <queries>
+        <package android:name="ir.mservices.market" />
+        <intent>
+            <action android:name="ir.mservices.market.InAppBillingService.BIND" />
+            <data android:mimeType="*/*" />
+        </intent>
+    </queries>
+
+  <application>
+    <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+    <meta-data android:name="billing.service" android:value="myket.MyketIabService" />
+    <activity android:name="com.myket.MyketIABProxyActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+    <receiver android:name="com.myket.util.IABReceiver"
+			    android:exported="true">
+        <intent-filter>
+            <action android:name="ir.mservices.market.ping" />
+            <action android:name="ir.mservices.market.purchase" />
+            <action android:name="ir.mservices.market.getPurchase" />
+            <action android:name="ir.mservices.market.billingSupport" />
+            <action android:name="ir.mservices.market.skuDetail" />
+            <action android:name="ir.mservices.market.consume" />
+        </intent-filter>
+    </receiver>
+  </application>
+    
+  <uses-permission android:name="ir.mservices.market.BILLING" />
+</manifest>

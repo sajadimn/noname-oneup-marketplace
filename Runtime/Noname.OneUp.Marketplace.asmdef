@@ -1,0 +1,37 @@
+{
+    "name": "Noname.OneUp.Marketplace",
+    "rootNamespace": "",
+    "references": [
+        "Noname.OneUp.Singleton",
+        "Noname.OneUp.Region",
+        "UnityEngine.UI",
+        "UnityEngine.Purchasing",
+        "UnityEngine.Purchasing.Stores",
+        "Unity.Purchasing",
+        "Unity.Purchasing.Stores",
+        "Unity.Services.Core",
+        "Unity.Services.Core.Environments",
+        "Google.Play.AppUpdate",
+        "Google.Play.Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.purchasing",
+            "expression": "",
+            "define": "ONEUP_PURCHASING"
+        },
+        {
+            "name": "com.google.play.appupdate",
+            "expression": "",
+            "define": "ONEUP_APPUPDATE"
+        }
+    ],
+    "noEngineReferences": false
+}

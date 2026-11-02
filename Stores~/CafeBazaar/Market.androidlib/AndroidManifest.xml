@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android" 
+		package="com.fanafzar.bazaarIABTest" 
+		android:versionCode="1" 
+		android:versionName="1.0">
+	<queries><package android:name="com.farsitel.bazaar" /></queries>
+	<uses-permission android:name="com.farsitel.bazaar.permission.PAY_THROUGH_BAZAAR" />
+	<application>
+		<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+		<meta-data android:name="billing.service" android:value="bazaar.BazaarIabService" />
+		<activity android:name="com.bazaar.BazaarIABProxyActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+	</application>
+</manifest>
