@@ -1,13 +1,16 @@
 {
   "name": "noname-oneup-marketplace",
   "displayName": "Marketplace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2021.3",
   "license": "Copyright (c) Noname.OneUp All rights reserved. ",
   "type": "Tools",
   "category": "Utilities",
   "description": "This package contains the store layer for in-app purchases, update checks and rating on Cafe Bazaar, Myket, ZarinPal and Google Play.",
   "dependencies": {
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.ugui": "2.0.0"
   },
