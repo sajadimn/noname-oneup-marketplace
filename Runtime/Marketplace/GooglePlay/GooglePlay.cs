@@ -135,7 +135,7 @@ ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingM
                 skuDetails.priceType = _product.metadata.localizedPriceString;
                 skuDetails.price = GetSkuPrice(_product.metadata.localizedPrice);
                 skuDetailsSucceedData.Add(skuDetails);
-                config.currencyCode = _product.metadata.isoCurrencyCode;
+                config.priceType = _product.metadata.isoCurrencyCode;
             }
         }
 
