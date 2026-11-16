@@ -7,10 +7,13 @@ public static class ZarinPalManifest
 {
     private const string ConfigPath = "Assets/Settings/Marketplace/Resources/ZarinPalConfig.asset";
     private const string ManifestFile = "Market.androidlib/AndroidManifest.xml";
-    private const string TemplatePath = "Packages/noname-oneup-marketplace/Stores~/ZarinPal/" + ManifestFile;
+    private const string TemplateFolder = "Stores~/ZarinPal/";
     private const string ManifestId = "com.oneup.marketplace.zarinpal";
     public const string CurrentMarketFolder = "Assets/Plugins/Android/Market";
     private const string CallbackBlock = "(?s)<!--callback-->.*?<!--/callback-->";
+
+    public static string TemplateFile =>
+        System.IO.Path.Combine(UnityEditor.PackageManager.PackageInfo.FindForAssembly(typeof(ZarinPalManifest).Assembly).resolvedPath, TemplateFolder + ManifestFile);
 
     public static string Fill(string template, string scheme, string host, string activity)
     {
@@ -34,7 +37,7 @@ public static class ZarinPalManifest
         if (string.IsNullOrEmpty(scheme) || string.IsNullOrEmpty(host))
             Debug.LogWarning("ZarinPalManifest - Callback is empty in ZarinPalConfig, so ZarinPal cannot return to the game");
 
-        string template = File.ReadAllText(System.IO.Path.GetFullPath(TemplatePath));
+        string template = File.ReadAllText(TemplateFile);
         File.WriteAllText(path, Fill(template, scheme, host, activity));
     }
 
