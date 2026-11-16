@@ -9,7 +9,7 @@ public static class MarketplaceBuildPaths
     private const string MarketFilesField = "marketFilesPath";
     private const string ManifestField = "manifestPath";
     private const string PackageCacheMarker = "Library/PackageCache/" + PackageName + "@";
-    private static readonly string[] MarketFileStores = { "CafeBazaar", "MyKet", "ZarinPal" };
+    private static readonly string[] MarketFileStores = { "CafeBazaar", "MyKet" };
     private static readonly string[] ManifestStores = { "CafeBazaar", "MyKet", "ZarinPal", "GooglePlay" };
 
     public static string MarketFilesPath(string store)
