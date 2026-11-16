@@ -17,10 +17,15 @@ Add these to `Packages/manifest.json` before this package, or it cannot compile:
 5. Call `MarketplaceManager.Instance.Init(getUserId)` after `RegionManager` is ready. No scene object or prefab is needed.
 6. The package creates `MarketplaceLoader.prefab` in `Assets/Settings/Marketplace` and attaches it to `loaderPrefab` in `MarketplaceData`. `Init` creates it under `MarketplaceManager`. Edit that prefab to change how it looks; its root needs a Canvas.
 
-## Android files
-Each store's jar and manifest are in `Stores~`, which Unity ignores because the Bazaar and Myket jars share classes. At build time copy the chosen store into `Assets/Plugins/Android/Market`. The package fills the ZarinPal manifest itself before the build.
+## Android files and build configs
+Two folders hold files that must not be in the game all the time, so Unity must ignore them. Their names end in `~`, which Unity does not import.
 
-ZarinPal returns to the game with a deep link. Set `callbackScheme`, `callbackHost` and `callbackActivity` in `ZarinPalConfig`. Use `Stores~/ZarinPal` for ZarinPal builds and for Google Play builds, because Google Play builds use ZarinPal in Iran. Each build fills the link from the config, and saving the config updates the current copy. With an empty callback the link is left out.
+- `Stores~` (inside this package): the Android files of each store, a jar and a `Market.androidlib` with that store's manifest. The Bazaar and Myket jars contain the same classes, so they cannot both be in the project at once. A build copies only the chosen store into `Assets/Plugins/Android/Market`, and the build restores the project afterwards. Only CafeBazaar and MyKet builds need this (`hasMarketFile` on). ZarinPal and Google Play have no market files. `Stores~/ZarinPal` holds the manifest template the package fills from `ZarinPalConfig`.
+- `Market~` (in your project, `Assets/Settings/BuildPipeline/Market~`, created by the build pipeline package): the game's own `AndroidManifest.xml` for store builds, kept out of `Assets/Plugins/Android` until a build copies it there. Every store config points at it with `manifestPath`.
+
+The package sets these build config paths itself when it is imported and whenever a config in `Assets/Settings/BuildPipeline` is imported (menu `OneUp/Marketplace/Set Build Config Paths` does it by hand). `CafeBazaar*` and `MyKet*` configs get `marketFilesPath` = `Packages/noname-oneup-marketplace/Stores~/<Store>`. `CafeBazaar*`, `MyKet*`, `ZarinPal*` and `GooglePlay*` configs get `manifestPath` = `Assets/Settings/BuildPipeline/Market~/AndroidManifest.xml`. The `Packages/...` form matters: a tarball package is unpacked to `Library/PackageCache/<name>@<hash>`, and the hash is different on every computer, so that path breaks builds elsewhere. An empty value, or an old `Library/PackageCache/...` path, is replaced; any other value you set is kept. The build pipeline turns `Packages/...` into the real folder on each computer.
+
+ZarinPal returns to the game with a deep link. Set `callbackScheme`, `callbackHost` and `callbackActivity` in `ZarinPalConfig`. The package fills the ZarinPal manifest from `Stores~/ZarinPal` before each build, and saving the config updates the current copy. With an empty callback the link is left out.
 
 ## Examples
 
